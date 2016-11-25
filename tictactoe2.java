@@ -18,6 +18,7 @@ public class tictactoe2 {
 		int i,j;// board positions Row and column (i=y coordinate, j=x coordinate)
 		int usrChoice; // The users choice to play against friend or computer
 		char player1, player2; // The human players
+		int count = 1;//This is used to switch between players
 		
 		
 		//Main Menu for Tic Tac Toe
@@ -63,7 +64,16 @@ public class tictactoe2 {
 			
 			if(usrChoice == 1 && (checkWin() != 1 && isTie() != 1))//Play with a friend
 			{
-				System.out.println("1");
+				
+				//Switch between x and y
+				if(count == 0){
+					player1 = 'x';
+					count = 1;
+					}
+				else{
+					player1 = 'y';
+					count = 0;
+					}
 			}
 			else if(usrChoice == 2 && (checkWin() != 1 && isTie() != 1))//Play with the computer
 			{
