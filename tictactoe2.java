@@ -17,7 +17,7 @@ public class tictactoe2 {
 		Scanner scan = new Scanner(System.in); 
 		int i,j;// board positions Row and column (i=y coordinate, j=x coordinate)
 		int usrChoice; // The users choice to play against friend or computer
-		char player1, player2; // The three possible players
+		char player1, player2; // The human players
 		
 		
 		//Main Menu for Tic Tac Toe
@@ -26,7 +26,7 @@ public class tictactoe2 {
 		System.out.println("(1) Play with a friend");
 		System.out.println("(2) Play with the computer");
 		usrChoice = scan.nextInt();
-		player1 ='x';
+		player1 ='x';//assign x's to player one
 		
 		if(usrChoice == 2)//Play with the computer
 		{
@@ -82,6 +82,7 @@ public class tictactoe2 {
 	
 	}//End Main Method
 	
+	//Creates an empty 3x3 board
 	public static void createBoard(){
 		for(int i=0; i<ROW; i++)
 			for(int j=0; j<COL; j++){
@@ -89,6 +90,7 @@ public class tictactoe2 {
 		    }
 	}
 	
+	//Prints the board to the screen
 	public static void printBoard(){
 		
 		for(int i=0; i<ROW; i++){
@@ -108,8 +110,10 @@ public class tictactoe2 {
 		}
 	}
 	
+	//Update positions on the board
 	public static int updateBoard(int i, int j, char c){
 	
+		//if c = 'x' or 'y' and the position at (i,j) isn't already taken, then make position (i,j) the value of c
 		if(checkChar(c)==1 && checkPosition(i,j) == 1){
 			board[i][j] = c;
 			return 1;
@@ -119,6 +123,7 @@ public class tictactoe2 {
 		
 	}
 	
+	//Check if the position (i,j) is empty and within the board parameters (aka 0<=i<3 and 0<=j<3 )
 	public static int checkPosition(int i, int j){
 	    if((i>=0 && i<3) && (j>=0 && j<3) && ( board[i][j] == ' '))
 	    {
@@ -127,6 +132,8 @@ public class tictactoe2 {
 		else
 			return 0;
 	}
+	
+	//Checks if the charcter 'c' is either an 'x' or a 'y' by returning the value 1 if true , 0 if false
 	public static int checkChar(char c){
 		
 		if(c == 'x'  || c == 'y')
@@ -134,9 +141,11 @@ public class tictactoe2 {
 		else
 			return 0;
 	}
+	
+	//Checks if a player has won by returning the value 1 if true and 0 if false
 	public static int checkWin(){
 		
-		
+		//Check if the winning position is one of the 3 rows across or 3 rows down the board
 		for(int j=0; j<ROW; j++){
 			// Across
 			if(board[j][0] == board[j][1] && board[j][1] == board[j][2] && board[j][0] != ' ')
@@ -154,6 +163,7 @@ public class tictactoe2 {
 
 			return 0;
 	}
+	//Checks if the result is a tie
 	public static int isTie(){
 		
 		for(int i=0; i<COL; i++)
@@ -166,6 +176,11 @@ public class tictactoe2 {
 		return 1;
 	}
 	
+	//Checks if a player could win by going to a position on the board and returns that position number 
+        // bases off of the below idea of the matrix/board. NOTE: position (0,0) = 1 on the below board and so on.
+	// [1,2,3]
+	// [4,5,6]
+	// [7,8,9]
 	public static int couldWin(char c){
 		
 		//Checking Rows
@@ -227,6 +242,7 @@ public class tictactoe2 {
 	}
 	
 	/***Computer A.I. Method****/
+	//Based on the difficulty level, determines the position the computer chooses.
 	public static int computerMove(int difficulty, char opp){
 		
 		char ch;
