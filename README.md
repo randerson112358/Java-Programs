@@ -5,7 +5,7 @@
   <img src="http://www.coreprogrammers.com/wp-content/uploads/2013/05/java_logo1.png" width="350"/>
 </p>
 This is a repository for Java programs. <br>
-To see me programming in Java checkout the YouTube channel: <a target="_blank" href="https://www.youtube.com/channel/UCbmb5IoBtHZTpYZCDBOC1CA">Click Here</a>
+To see me programming in Java checkout the YouTube channel: <a target="_blank" href="https://www.youtube.com/playlist?list=PLBhJnyA0V0uJrmw8r0wgqIBQxDwf3Z6HE">Click Here</a>
 
 
 ## Java Program Tutorials
